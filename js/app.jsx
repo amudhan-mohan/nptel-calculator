@@ -233,6 +233,29 @@ function App() {
                                 <span>25</span>
                             </div>
                         </div>
+                        {/* Theory Minimum Mark Info - Only shows when internal marks >= 10 */}
+                        {result.isEligible && (
+                            <div className="mt-4 sm:mt-6 bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+                                <h3 className="text-base sm:text-lg font-semibold text-blue-800 mb-2">
+                                    📝 Next Step: Theory Exam Requirement
+                                </h3>
+                                <div className="space-y-2 text-blue-700">
+                                    <p className="font-semibold text-sm sm:text-base">
+                                        Since your internal marks are {result.internalMarks}/25 (≥10/25), you have cleared the internal marks requirement!
+                                    </p>
+                                    <div className="bg-white rounded-lg p-2 sm:p-3 border border-blue-300">
+                                        <p className="font-medium mb-1 text-sm sm:text-base">To get the certificate, you also need:</p>
+                                        <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                                            <li><strong>Theory Exam Score ≥ 30/75</strong> (40% of exam marks)</li>
+                                            <li><strong>Final Combined Score ≥ 40/100</strong></li>
+                                        </ul>
+                                    </div>
+                                    <p className="text-xs sm:text-sm italic">
+                                        Both criteria must be satisfied individually to receive the certificate.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
 
@@ -253,4 +276,5 @@ function App() {
 }
 
 // Render the app
+
 ReactDOM.render(<App />, document.getElementById('app'));
